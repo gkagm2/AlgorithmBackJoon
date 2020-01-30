@@ -11,7 +11,6 @@ void Swap(int *a, int*b) {
 
 void QuickSort(int arr[], int left, int right) {
 	int l = left, r = right;
-	int temp;
 	int pivot = arr[(left + right) / 2];
 
 	while (l < r) {
