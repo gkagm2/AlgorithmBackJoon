@@ -6,7 +6,7 @@ bool visit[9];
 vector<int> vec;
 int n, m;
 
-void Solve(int cnt) {
+void DFS(int cnt) {
 	if (cnt == m) {
 		for (int i = 0; i < vec.size(); ++i) {
 			cout << vec[i] << " ";
@@ -20,7 +20,7 @@ void Solve(int cnt) {
 			continue;
 		visit[i] = true;
 		vec.push_back(i);
-		Solve(cnt + 1);
+		DFS(cnt + 1);
 		visit[i] = false;
 		vec.pop_back();
 	}
@@ -31,7 +31,7 @@ int main() {
 	ios::sync_with_stdio(false);
 
 	cin >> n >> m;
-	Solve(0);
+	DFS(0);
 
 	return 0;
 }
