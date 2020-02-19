@@ -1,5 +1,4 @@
-// Radix sort (마이너스 숫자는 안됨)
-
+// 10764kb, 6216ms
 #include <iostream>
 #include <cstring>
 #include <queue>
@@ -9,7 +8,7 @@ using namespace std;
 queue<int> que[10];
 vector<int> vec;
 
-#define MAX_CNT 3 // 최대 자리 수
+#define MAX_CNT 7 // 최대 자리 수
 
 int main() {
 	cin.tie(NULL);
@@ -22,7 +21,7 @@ int main() {
 	for (int i = 0; i < numCnt; ++i) {
 		int n;
 		cin >> n;
-		vec.push_back(n);
+		vec.push_back(n + 2000000);
 	}
 
 	// Radix sort
@@ -60,7 +59,7 @@ int main() {
 	}
 
 	for (int i = 0; i < vec.size(); ++i) {
-		cout << vec[i] << '\n';
+		cout << vec[i] - 2000000 << '\n';
 	}
 
 	return 0;
