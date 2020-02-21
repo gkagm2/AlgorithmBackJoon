@@ -1,4 +1,4 @@
-// BFS
+// BFS (DFS로 하면 queue -> stack으로 변환. 대신 최단거리 안나올 수 있음)
 #include <iostream>
 #include <queue>
 using namespace std;
