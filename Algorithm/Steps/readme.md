@@ -23,3 +23,8 @@
 + step21 : 큐, 덱
 + step22 : -
 + step23 : 분할정복
++ step24 : 이분 탐색
++ step25 : 우선순위 큐
++ step26 : 동적 계획법2
++ step28 : DFS와 BFS
++ step29 : 최단경로
