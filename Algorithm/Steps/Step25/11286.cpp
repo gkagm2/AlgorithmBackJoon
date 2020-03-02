@@ -1,4 +1,3 @@
-// 나중에 Heap 직접 만들어서 시간 단축해봐야 될 듯
 #include <iostream>
 #include <queue>
 using namespace std;
@@ -10,6 +9,8 @@ int Abs(int n) {
 }
 
 int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
 
 	priority_queue<PAIR, vector<PAIR>, greater<PAIR>> pq;
 	int n;
