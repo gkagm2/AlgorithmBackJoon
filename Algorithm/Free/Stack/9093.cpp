@@ -44,33 +44,30 @@ public:
 
 stack stk;
 
-inline void StackAllPop() {
-	while (!stk.isEmpty()) {
-		cout << stk.front();
-		stk.pop();
-	}
-	cout << ' ';
-}
-
 int main() {
 	cin.tie(NULL);
 	ios::sync_with_stdio(false);
 
 	int cnt;
 	cin >> cnt;
-	cin.ignore();
+	cin.ignore	();
 	while (cnt--) {
 		string str;
 		getline(cin, str);
-		for (int i = 0; i < str.length(); ++i) {
-			if (str[i] != ' ') {
-				stk.push(str[i]);
+		str += '\n';
+
+		for (char ch : str) {
+			if (ch == ' ' || ch == '\n') {
+				while (!stk.isEmpty()) {
+					cout << stk.front();
+					stk.pop();
+				}
+				cout << ch;
 			}
 			else {
-				StackAllPop();
+				stk.push(ch);
 			}
 		}
-		StackAllPop();
 	}
 
 	return 0;
