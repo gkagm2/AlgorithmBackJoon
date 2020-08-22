@@ -1,8 +1,52 @@
 #include <iostream>
 #include <cstring>
+
 using namespace std;
 
+const char* Valid(char* s, const int &length) {
+	int cnt = 0;
+	for (int i = 0; i < length; ++i) {
+		if (s[i] == '(')
+			cnt += 1;
+		else
+			cnt -= 1;
+
+		if (cnt < 0)
+			return "NO";
+	}
+
+	if (cnt == 0)
+		return "YES";
+	else
+		return "NO";
+}
+
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+
+	int testCnt;
+
+	char str[51];
+	int length;
+
+	cin >> testCnt;
+	cin.ignore(1024, '\n');
+	while (testCnt--) {
+		cin.getline(str, 51);
+		length = strlen(str);
+
+		const char *answer = Valid(str, length);
+		cout << answer << "\n";
+	}
+
+	return 0;
+}
+
+
 // use my stack (linked list)
+/*
+
 typedef struct Node {
 public:
 	char data;
@@ -37,7 +81,7 @@ public:
 		else {
 			node->next = head;
 		}
-		
+
 		head = node;
 		++size;
 	}
@@ -66,7 +110,6 @@ public:
 		}
 		return false;
 	}
-
 };
 
 int main() {
@@ -119,6 +162,7 @@ int main() {
 
 	return 0;
 }
+*/
 
 
 // use stack reference
