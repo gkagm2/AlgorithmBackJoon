@@ -18,7 +18,7 @@ int main() {
 
 	d[1] = a[1];
 	for (int i = 2; i <= n; ++i) {
-		d[i] = max(max(0, d[i - 1]) + a[i], a[i]);
+		d[i] = max(0, d[i - 1]) + a[i];
 	}
 
 	cout << *max_element(d + 1, d + n + 1);
