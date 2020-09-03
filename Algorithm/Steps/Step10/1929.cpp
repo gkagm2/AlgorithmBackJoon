@@ -1,8 +1,43 @@
-// 내가 짠 Script. 속도 16ms, 메모리 2840KB
+// 12ms 2960KB O(NLogLogN)
+#include <iostream>
+using namespace std;
+
+bool check[1000001];
+
+int main() {
+	cin.tie(nullptr);
+	ios::sync_with_stdio(false);
+
+	// 에라토스테네스의 체
+	check[0] = check[1] = true;
+
+	for (int i = 2; i * i <= 1000000; ++i) {
+		if (check[i] == false) {
+			for (int j = i + i; j <= 1000000; j += i) {
+				check[j] = true;
+			}
+		}
+	}
+
+	int n, m;
+	int cnt = 0;
+	cin >> m >> n;
+
+	for (int i = m; i <= n; ++i) {
+		if (check[i] == false) {
+			cout << i << "\n";
+		}
+	}
+
+	return 0;
+}
+
+/*/
 #include <iostream>
 #include <cstring>
 using namespace std;
 
+// 내가 짠 Script. 속도 16ms, 메모리 2840KB
 int main() {
 	cin.tie(NULL);
 	ios::sync_with_stdio(false);
@@ -30,6 +65,7 @@ int main() {
 
 	return 0;
 }
+*/
 
 // 속도 8ms, 메모리 1988KB
 //#include <cmath>
