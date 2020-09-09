@@ -5,7 +5,8 @@ using namespace std;
 
 int a[9];
 int nums[10];
-void dfs(int idx, int n, int m) {
+int n, m;
+void dfs(int idx) {
 	if (idx == m) {
 		for (int i = 0; i < m; ++i) {
 			cout << a[i] << " ";
@@ -16,7 +17,7 @@ void dfs(int idx, int n, int m) {
 
 	for (int i = 0; i < n; ++i) {
 		a[idx] = nums[i];
-		dfs(idx + 1, n, m);
+		dfs(idx + 1);
 	}
 }
 
@@ -24,15 +25,12 @@ int main() {
 	cin.tie(nullptr);
 	ios::sync_with_stdio(false);
 
-	int n, m;
 	cin >> n >> m;
 
-	for (int i = 0; i < n; ++i) {
+	for (int i = 0; i < n; ++i)
 		cin >> nums[i];
-		
-	}
 	sort(nums, nums + n);
-	dfs(0, n, m);
+	dfs(0);
 
 	return 0;
 }
