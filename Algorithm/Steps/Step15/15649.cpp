@@ -1,4 +1,44 @@
 #include <iostream>
+using namespace std;
+
+bool visit[10];
+int a[10];
+
+void dfs(int idx, int n, int m) {
+	if (idx == m) {
+		for (int i = 0; i < m; ++i) {
+			cout << a[i] << " ";
+		}
+		cout << "\n";
+		return;
+	}
+
+	for (int i = 1; i <= n; ++i) {
+		if (visit[i])
+			continue;
+		visit[i] = true;
+		a[idx] = i;
+		dfs(idx + 1, n, m);
+		visit[i] = false;
+	}
+}
+
+int main() {
+	cin.tie(nullptr);
+	ios::sync_with_stdio(false);
+	
+	int n, m;
+	cin >> n >> m;
+	
+	dfs(0, n, m);
+
+	return 0;
+}
+
+
+
+/*
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -11,7 +51,7 @@ void DFS(int cnt) {
 		for (int i = 0; i < vec.size(); ++i) {
 			cout << vec[i] << " ";
 		}
-		cout << '\n';
+		cout << '\n'; 
 		return;
 	}
 
@@ -24,7 +64,7 @@ void DFS(int cnt) {
 		visit[i] = false;
 		vec.pop_back();
 	}
-}
+} 
 
 int main() {
 	cin.tie(NULL);
@@ -35,3 +75,4 @@ int main() {
 
 	return 0;
 }
+*/
