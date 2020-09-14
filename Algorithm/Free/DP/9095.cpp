@@ -3,7 +3,20 @@ using namespace std;
 
 int arr[11];
 
-// Botttom top
+// Top down
+int Func(int sum, int goal) {
+	if (sum > goal) return 0;
+	if (sum == goal) return 1;
+
+	int now = 0;
+	for (int i = 1; i <= 3; ++i) {
+		now += Func(sum + i, goal);
+	}
+	
+	return now;
+}
+
+// Botttom up
 int main() {
 	cin.tie(NULL);
 	ios::sync_with_stdio(false);
@@ -23,8 +36,9 @@ int main() {
 	cin >> cnt;
 	while (cnt--) {
 		cin >> n;
-		cout << arr[n] << "\n";
+		//cout << arr[n] << "\n"; // bottom up
+		cout << Func(0, n) << "\n"; // top down
 	}
-	
+
 	return 0;
 }
