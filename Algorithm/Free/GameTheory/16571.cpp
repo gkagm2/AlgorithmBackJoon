@@ -1,4 +1,4 @@
-// what the fuck is problem.. :(
+// what the heck!
 #include <iostream>
 #include <vector>
 using namespace std;
