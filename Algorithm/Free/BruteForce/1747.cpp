@@ -27,7 +27,7 @@ int main() {
 	while (true) {
 		string s = to_string(i);
 
-		// 펠림드롬 체크
+		// Check Palindrome
 		int strSize = s.size();
 		bool isSame = true;
 		for (int j = 0; j < strSize / 2; ++j) {
@@ -37,7 +37,7 @@ int main() {
 			}
 		}
 		if (isSame) {
-			// 소수 체크
+			// Check prime
 			if (IsPrime(stoi(s))) {
 				cout << s;
 				break;
