@@ -1,6 +1,5 @@
 #include <iostream>
 #include <stack>
-#include <algorithm>
 using namespace std;
 
 int dp[1001];
