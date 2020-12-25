@@ -4,7 +4,7 @@ using namespace std;
 
 int arr[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
 
-string str[] = {"MON","TUE","WED","THU","FRI","SAT", "SUN"};
+string str[] = { "SUN", "MON","TUE","WED","THU","FRI","SAT"};
 
 int main() {
 	cin.tie(nullptr);
@@ -20,10 +20,7 @@ int main() {
 	}
 
 	dayCnt += d;
-	int dd = (dayCnt % 7) - 1;
-	if (dd < 0)
-		dd = 6;
-	cout << str[dd];
+	cout << str[dayCnt % 7];
 
 	return 0;
 }
