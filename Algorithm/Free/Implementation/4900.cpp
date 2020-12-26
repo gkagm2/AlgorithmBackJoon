@@ -2,6 +2,7 @@
 #include <string>
 #include <map>
 using namespace std;
+#define ll long long
 
 int main() {
 	cin.tie(nullptr);
@@ -23,9 +24,10 @@ int main() {
 			break;
 
 		// find idx
-		unsigned int plusIdx = 0;
-		for (unsigned int i = 0; i < input.size(); ++i) {
-			if (input[plusIdx] == '+') {
+		ll plusIdx = 0;
+		ll sz =  input.size() - 1;
+		for (ll i = 0; i < sz; ++i) {
+			if (input[i] == '+') {
 				plusIdx = i;
 				break;
 			}
@@ -35,20 +37,20 @@ int main() {
 		string leftCode = "";
 		string rightCode = "";
 		//left
-		for (unsigned int i = 0; i < plusIdx - 1; i += 3)
+		for (ll i = 0; i < plusIdx - 1; i += 3)
 			leftCode += m[input.substr(i, 3)];
 
 		//right
-		for (unsigned int i = plusIdx + 1; i < input.size() - 2; i += 3)
+		for (ll i = plusIdx + 1; i < sz; i += 3)
 			rightCode += m[input.substr(i, 3)];
 
 		// get result
-		unsigned int result = stoi(leftCode) + stoi(rightCode);
+		ll result = stoll(leftCode) + stoll(rightCode);
 
 		// print
 		cout << input;
 		string resultCode = to_string(result);
-		for (unsigned int i = 0; i < resultCode.size(); ++i)
+		for (ll i = 0; i < resultCode.size(); ++i)
 			cout << rm[resultCode[i]];
 		cout << "\n";
 	}
