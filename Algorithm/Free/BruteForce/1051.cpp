@@ -21,23 +21,20 @@ int main() {
 		for (int curX = 0; curX < x; ++curX) {
 
 			char lt = map[curY][curX];
+			int pY = curY;
+			int pX = curX;
+			for (; pY < y, pX < x; pX++, pY++) {
+				if (curY == pY && curX == pX)
+					continue;
 
-			for (int pY = curY; pY < y; ++pY) {
-				for (int pX = curX; pX < x; ++pX) {
-					if (curY == pY && curX == pX)
-						continue;
+				char rt = map[pY][curX];
+				char lb = map[curY][pX];
+				char rb = map[pY][pX];
 
-					char rt = map[pY][curX];
-					char lb = map[curY][pX];
-					char rb = map[pY][pX];
-
-					if (lt == rt && lb == rb && lt == lb) {
-						if (pY - curY == pX - curX) {
-							int size = (pY + 1 - curY) * (pX + 1 - curX);
-							if (size > maxSize)
-								maxSize = size;
-						}
-					}
+				if (lt == rt && lb == rb && lt == lb) {
+					int size = (pY + 1 - curY) * (pX + 1 - curX);
+					if (size > maxSize)
+						maxSize = size;
 				}
 			}
 		}
