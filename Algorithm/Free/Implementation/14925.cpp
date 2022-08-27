@@ -1,3 +1,16 @@
+// 속도문제 (DP로 풀어야될듯)
+/*
+ex)
+6 6
+0 0 0 1 0 0
+0 0 0 2 1 0
+0 0 2 0 0 0
+0 1 0 0 0 0
+2 0 0 0 0 0
+0 0 0 0 0 0
+
+answer : 3
+*/
 #include <iostream>
 #include <vector>
 #include <queue>
