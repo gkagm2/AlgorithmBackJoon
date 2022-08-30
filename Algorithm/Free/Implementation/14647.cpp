@@ -93,14 +93,15 @@ public:
 		}
 
 		// crash bingo
+		int crashNum = 0;
 		switch (eType) {
 		case E_Type::horizon:
 			for (int x = 0; x < _pBingo->GetX(); ++x)
-				_pBingo->SetBingoNumber(x, mY, 0);
+				_pBingo->SetBingoNumber(x, mY, crashNum);
 			break;
 		case E_Type::vertical:
 			for (int y = 0; y < _pBingo->GetY(); ++y)
-				_pBingo->SetBingoNumber(mX, y, 0);
+				_pBingo->SetBingoNumber(mX, y, crashNum);
 			break;
 		default:
 			break;
