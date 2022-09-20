@@ -38,7 +38,8 @@ public:
 	void InsertCarrot(int _x, int _y);
 	
 	void Optimaze(); // BFS (메모리 초과나오네)
-	void Optimaze_LessMemory();
+	void Optimaze_Simple1();
+	void Optimaze_Simple();
 	bool IsExistCarrot();
 	void Render();
 	
@@ -116,13 +117,12 @@ void Map::Optimaze()
 	}
 }
 
-void Map::Optimaze_LessMemory()
+void Map::Optimaze_Simple1()
 {
 	if (!IsExistCarrot())
 		return;
 
 	Vec2 vCarrotPos = _FindCarrot();
-
 	Vec2 vStartPos = { vCarrotPos.x % 2, vCarrotPos.y % 2 };
 
 	for (int y = 0; y < m_iYSize; ++y) {
@@ -140,6 +140,21 @@ void Map::Optimaze_LessMemory()
 			if (x % 2 == vStartPos.x && y % 2 == vStartPos.y) {
 				_InsertCarrotIdx(x, y);
 			}
+		}
+	}
+}
+
+void Map::Optimaze_Simple()
+{
+	if (!IsExistCarrot())
+		return;
+
+	Vec2 vCarrotPos = _FindCarrot();
+
+	for (int y = 0; y < m_iYSize; ++y) {
+		for (int x = 0; x < m_iXSize; ++x) {
+			if ((vCarrotPos.x + vCarrotPos.y) % 2 == (x + y) % 2)
+				_InsertCarrotIdx(x, y);
 		}
 	}
 }
@@ -202,7 +217,9 @@ int main() {
 	Map map;
 	map.SetMapSize(size);
 	map.InsertCarrot(x, y);
-	map.Optimaze_LessMemory();
+	map.Optimaze_Simple();
+	//map.Optimaze_Simple1();
+	//map.Optimaze();
 	map.Render();
 
 	return 0;
