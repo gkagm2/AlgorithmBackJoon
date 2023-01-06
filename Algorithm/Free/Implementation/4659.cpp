@@ -89,7 +89,7 @@ int main() {
 
 		// 같은 글자 연속적인지 찾기
 		{
-			int lastIdx = word.size() - 2;
+			int lastIdx = word.size() - 1;
 			for (int i = 0; i < lastIdx; ++i) {
 				if (word.size() >= 2 && word[i] == word[i + 1]) {
 					if (word[i] != 'e' && word[i] != 'o') {
